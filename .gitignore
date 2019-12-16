@@ -3,3 +3,14 @@
 ################################################################################
 
 /XebiaSampleApp/XebiaSampleApp/.vs/XebiaSampleApp
+/XebiaSampleApp/XebiaSampleApp/packages
+/.vs
+/XebiaSampleApp/XebiaSampleApp/XbeiaSampleApp.UnitTests/bin/Debug/netcoreapp2.1
+/XebiaSampleApp/XebiaSampleApp/XbeiaSampleApp.UnitTests/obj
+/XebiaSampleApp/XebiaSampleApp/XebiaSampleApp/bin/Debug/netstandard2.0
+/XebiaSampleApp/XebiaSampleApp/XebiaSampleApp/obj
+/XebiaSampleApp/XebiaSampleApp/XebiaSampleApp.Android/obj
+/XebiaSampleApp/XebiaSampleApp/XebiaSampleApp.iOS/bin/iPhoneSimulator/Debug
+/XebiaSampleApp/XebiaSampleApp/XebiaSampleApp.iOS/obj
+/XebiaSampleApp/XebiaSampleApp/XebiaSampleApp.UITests/bin
+/XebiaSampleApp/XebiaSampleApp/XebiaSampleApp.UITests/obj

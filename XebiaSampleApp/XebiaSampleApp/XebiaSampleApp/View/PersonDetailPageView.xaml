@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XebiaSampleApp.View.PersonDetailPageView"
+             xmlns:viewModel="clr-namespace:XebiaSampleApp;assembly=XebiaSampleApp"
+             xmlns:resources="clr-namespace:XebiaSampleApp.Resx"
+              AutomationId="{x:Static viewModel:TestIdentifier.PERSON_PAGE2}"
+             viewModel:Locator.AutoWireViewModel="True" 
+             BackgroundColor="White" Title="{x:Static resources:AppResource.AddPerson}">
+      <ContentPage.ToolbarItems >
+        <ToolbarItem Order="Primary"
+                     AutomationId="{x:Static viewModel:TestIdentifier.PERSON_PAGE2_DONEBUTTON}"
+                     Text="{x:Static resources:AppResource.Update}"
+                     Priority="1"
+                     Command="{Binding UpdatePersonCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <!--<ScrollView >-->
+        <Grid HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="0.3*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.8*" />
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="0.2*" />
+            </Grid.RowDefinitions>
+
+            <!--Camera Image-->
+            <StackLayout Grid.Row="0" Grid.ColumnSpan="3"  HeightRequest="80" WidthRequest="80" >
+                <Image  Margin="5,25,5,5" VerticalOptions="Center" HorizontalOptions="Center" Aspect="AspectFill"  Source="camera.png" ></Image>
+            </StackLayout>
+
+            <!--Name-->
+            <Image Source="profile.png" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" WidthRequest="40" HeightRequest="40"   VerticalOptions="Center" HorizontalOptions="Center"></Image>
+
+            <Entry  AutomationId="{x:Static viewModel:TestIdentifier.PERSON_PAGE2_FIRSTNAME}"  Grid.Row="1" Grid.Column="1"  Text="{Binding Path=PersonDetail.FirstName,Mode=TwoWay}" Placeholder="{x:Static resources:AppResource.FirstName}"></Entry>
+
+            <Entry  AutomationId="{x:Static viewModel:TestIdentifier.PERSON_PAGE2_LASTNAME}" Grid.Row="2" Grid.Column="1" Text="{Binding Path=PersonDetail.LastName,Mode=TwoWay}"  Placeholder="{x:Static resources:AppResource.LastName}"></Entry>
+
+            <!--Contact No-->
+
+            <Image Source="phone.png" Grid.Row="3"  Grid.Column="0"  VerticalOptions="Center"  WidthRequest="40" HeightRequest="40"   HorizontalOptions="Center"></Image>
+
+            <Entry  Grid.Row="3" Grid.Column="1" Text="{Binding Path=PersonDetail.ContactNumber,Mode=TwoWay}"  Placeholder="{x:Static resources:AppResource.ContactNumber}"></Entry>
+
+            <!--Job-->
+
+            <Image Source="job.png" Grid.Row="4"  Grid.Column="0"  VerticalOptions="Center" WidthRequest="40" HeightRequest="40"   HorizontalOptions="Center"></Image>
+
+            <Entry  Grid.Row="4" Grid.Column="1"   Text="{Binding Path=PersonDetail.JobTitle,Mode=TwoWay}" Placeholder="{x:Static resources:AppResource.JobTitle}"></Entry>
+
+            <!--Address-->
+
+            <Image Source="home.png" Grid.Row="5"  Grid.Column="0"  VerticalOptions="Center" WidthRequest="40" HeightRequest="40"   HorizontalOptions="Center"></Image>
+
+            <Entry  Grid.Row="5" Grid.Column="1"  Text="{Binding Path=PersonDetail.Address,Mode=TwoWay}" Placeholder="{x:Static resources:AppResource.Address}"></Entry>
+
+            <!--Exp-->
+            <Image Source="yearsofexp.png" Grid.Row="6"   Grid.Column="0"  VerticalOptions="Center" WidthRequest="40" HeightRequest="40"   HorizontalOptions="Center"></Image>
+
+            <Entry  Grid.Row="6" Grid.Column="1" Text="{Binding Path=PersonDetail.YearsOfExp,Mode=TwoWay}"  Placeholder="{x:Static resources:AppResource.YearsofExp}"></Entry>
+
+        </Grid>
+        <!--</ScrollView>-->
+    </ContentPage.Content>
+</ContentPage>
