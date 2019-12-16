@@ -15,8 +15,6 @@ namespace XebiaSampleApp.UITests
                     .EnableLocalScreenshots()
                     .ApkFile(@"C:\Xebia\XebiaSampleApp\XebiaSampleApp\XebiaSampleApp.Android\bin\Release\com.companyname.xebiasampleapp.apk")
                     .StartApp();
-
-                //C:\Users\trenganathan\AppData\Local\Xamarin\Mono for Android\Archives\2019-12-11\XebiaSampleApp.Android 12-11-19 4.13 PM.apkarchive
             }
 
             return ConfigureApp.iOS.StartApp();
