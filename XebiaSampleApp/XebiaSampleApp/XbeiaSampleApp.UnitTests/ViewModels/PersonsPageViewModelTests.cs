@@ -14,6 +14,7 @@ namespace XbeiaSampleApp.UnitTests.ViewModels
     {
         public PersonsPageViewModelTests()
         {
+            // Register Dependencies
             XebiaSampleApp.Locator.RegisterDependencies();
         }
 
