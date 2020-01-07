@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{9B175975-24C2-461F-A4C1-5D5EA515C53E}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>RockPaperScissors</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Converter\InverseBoolConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Test\MessageKeys.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Test\TestIdentifier.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TwoPlayerMatch.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TwoPlayerMatchRPS.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TwoPlayerMatchRPSLS.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\INavigationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\NavigationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ChooseMatchViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\PlayMatchViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ViewModelBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Container.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\ChooseMatchView.xaml.cs">
+      <DependentUpon>ChooseMatchView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Computer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Human.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Game.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Player.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\CustomNavigationPage.xaml.cs">
+      <DependentUpon>CustomNavigationPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\PlayMatchView.xaml.cs">
+      <DependentUpon>PlayMatchView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\ChooseMatchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\PlayMatchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\CustomNavigationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              x:Class="RockPaperScissors.View.PlayMatchView"
+              xmlns:shared="clr-namespace:RockPaperScissors"
+              shared:Container.AutoWireViewModel="true"
+             AutomationId="{x:Static shared:TestIdentifier.PLAYMATCHVIEW}"
+             xmlns:converter="clr-namespace:RockPaperScissors.Converter"  NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <converter:InverseBoolConverter x:Key="InverseBoolConverter"></converter:InverseBoolConverter>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        
+        <Grid VerticalOptions="Fill" BackgroundColor="#498FE2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout  Grid.Row="0" VerticalOptions="Center" IsVisible="{Binding IsTimeElasped,Converter={StaticResource InverseBoolConverter}}" >
+                <Label Text="{Binding Counter}" TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="50"></Label>
+                <Label Text="Timer" TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="Large"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Spacing="25" VerticalOptions="Center" IsVisible="{Binding IsTimeElasped,Converter={StaticResource InverseBoolConverter}}">
+                <Label Text="{Binding Player2Name}" FontSize="Large" HorizontalOptions="CenterAndExpand"/>
+                <Label Margin="20,0,20,0" BackgroundColor="White"  HeightRequest="3" WidthRequest="100" VerticalOptions="CenterAndExpand"></Label>
+                <Label Text="{Binding Player1Name}" FontSize="Large"  HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+
+            <StackLayout  Grid.Row="0" VerticalOptions="Center" Spacing="50" IsVisible="{Binding IsTimeElasped}" >
+                <Image Source="{Binding ImageSourceSelectedByPlayer2}"></Image>
+                <Label AutomationId="{x:Static shared:TestIdentifier.RESULT}" Text="{Binding Result}" HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="25"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Spacing="25" VerticalOptions="Center" IsVisible="{Binding IsTimeElasped}">
+                <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="CenterAndExpand">
+                    <Button Text="Play Again !" BackgroundColor="#F5A724" Command="{Binding PlayCommand}"/>
+                    <Button AutomationId="{x:Static shared:TestIdentifier.CHANGEMODE}" Text="Change Mode" BackgroundColor="#F5A724" Command="{Binding ChangeModeCommand}"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2"  IsVisible="{Binding IsHumanVSComputerSelected}">
+                <Label Text="Select Choice" FontSize="Large" HorizontalOptions="CenterAndExpand" TextColor="{Binding HighLightedColor}" IsVisible="{Binding IsChoiceSelected,Converter={StaticResource InverseBoolConverter}}"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" IsEnabled="{Binding IsChoiceSelected,Converter={StaticResource InverseBoolConverter}}" >
+                    <ImageButton  AutomationId="{x:Static shared:TestIdentifier.SELECTCHOICE}" Opacity="{Binding RockOpacity}" Source="Rock.png"  Command="{Binding SelectChoiceCommand}" CommandParameter="0"  BackgroundColor="#498FE2" ></ImageButton>
+                    <ImageButton  Opacity="{Binding PaperOpacity}"  Source="Paper.png" Command="{Binding SelectChoiceCommand}" CommandParameter="1"  BackgroundColor="#498FE2" ></ImageButton>
+                    <ImageButton  Opacity="{Binding ScissorsOpacity}"  Source="Scissors.png" Command="{Binding SelectChoiceCommand}" CommandParameter="2"  BackgroundColor="#498FE2" ></ImageButton>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" IsVisible="{Binding IsHumanVSComputerSelected,Converter={StaticResource InverseBoolConverter}}">
+                <Image Source="{Binding ImageSourceSelectedByPlayer1}"></Image>
+            </StackLayout>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
